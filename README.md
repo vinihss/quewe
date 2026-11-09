@@ -201,6 +201,18 @@ make build           # binary in bin/quewe
 make build-cli       # CLI binary in bin/quewe-cli
 ```
 
+## API Documentation
+
+**Contract (source of truth):** [`contracts/task/openapi.yaml`](../../contracts/task/openapi.yaml) (OpenAPI 3.1, per ADR-002).
+
+Best practices applied:
+- **Contract-first/contract-aligned:** the OpenAPI spec is maintained in `contracts/` as the integration contract; handlers/DTOs should stay in sync and changes reviewed like code.
+- **OpenAPI 3.1 + JSON Schema:** explicit schemas, tags, security schemes, and the stable error envelope `{ error: { code, message, details? } }`.
+- **Single source of truth:** avoid duplicating contract details across ad-hoc docs; reference the spec and keep it versioned.
+- **Discoverability:** handler `Register` methods include godoc pointing to the contract/tag. For interactive browsing, load `contracts/task/openapi.yaml` in Swagger UI, Redoc, or Stoplight Elements.
+
+> Note: some response schemas are intentionally permissive (`additionalProperties`) where the implementation evolves; tighten them as DTOs stabilize.
+
 ## Endpoints
 
 ### Health & Observability (outside `/api/v1`, no authentication)

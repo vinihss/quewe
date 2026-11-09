@@ -19,6 +19,8 @@ func NewGroupsHandler(g *groups.Service, resolver auth.Resolver) *GroupsHandler 
 	return &GroupsHandler{groups: g, auth: resolver}
 }
 
+// Register mounts group routes on the versioned API mux.
+// Contract: contracts/task/openapi.yaml (tag: Groups).
 func (h *GroupsHandler) Register(api *http.ServeMux) {
 	api.HandleFunc("POST /groups", h.create)
 	api.HandleFunc("GET /groups/{id}", h.get)

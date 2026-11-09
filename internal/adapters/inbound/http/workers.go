@@ -22,6 +22,8 @@ func NewWorkersHandler(w *workers.Service, c *consuming.Service, resolver auth.R
 	return &WorkersHandler{workers: w, consuming: c, auth: resolver}
 }
 
+// Register mounts worker routes on the versioned API mux.
+// Contract: contracts/task/openapi.yaml (tag: Workers).
 func (h *WorkersHandler) Register(api *http.ServeMux) {
 	api.HandleFunc("POST /workers/register", h.register)
 	api.HandleFunc("POST /workers/heartbeat", h.heartbeat)

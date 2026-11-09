@@ -22,6 +22,8 @@ func NewExecutionsBrokerHandler(c *consuming.Service, l *leasing.Service, resolv
 	return &ExecutionsBrokerHandler{consuming: c, leasing: l, auth: resolver}
 }
 
+// Register mounts broker/lease protocol routes on the versioned API mux.
+// Contract: contracts/task/openapi.yaml (tag: Broker).
 func (h *ExecutionsBrokerHandler) Register(api *http.ServeMux) {
 	api.HandleFunc("POST /executions/{id}/heartbeat", h.renew)
 	api.HandleFunc("POST /executions/{id}/result", h.finish)

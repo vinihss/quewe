@@ -28,6 +28,8 @@ func NewExecutionsHandler(repo ExecutionRepository, resolver auth.Resolver) *Exe
 	return &ExecutionsHandler{repo: repo, auth: resolver}
 }
 
+// Register mounts execution read routes on the versioned API mux.
+// Contract: contracts/task/openapi.yaml (tag: Executions).
 func (h *ExecutionsHandler) Register(api *http.ServeMux) {
 	api.HandleFunc("GET /executions", h.listExecutions)
 	api.HandleFunc("GET /executions/{id}", h.getExecution)

@@ -35,6 +35,7 @@ func NewTasksHandler(svc TaskService, resolver auth.Resolver) *TasksHandler {
 }
 
 // Register mounts task routes on the versioned API mux (already stripped of /api/v1).
+// Contract: contracts/task/openapi.yaml (tag: Tasks).
 func (h *TasksHandler) Register(api *http.ServeMux) {
 	api.HandleFunc("POST /tasks", h.createTask)
 	api.HandleFunc("GET /tasks", h.listTasks)

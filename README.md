@@ -1,7 +1,3 @@
-# quewe
-
-
-
 Go HTTP service for managing scheduled tasks, executions, distributed workers,
 task groups, and observability. Implements Clean Architecture + Hexagonal
 (Ports & Adapters) per `AGENTS.md` and the ADRs in `spec/decisions/`.

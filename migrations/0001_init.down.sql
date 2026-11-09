@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS executions;
+DROP TABLE IF EXISTS task_schedules;
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS principals;

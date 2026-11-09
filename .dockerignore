@@ -1,0 +1,7 @@
+.git
+.gitignore
+bin/
+tests/
+*.md
+.env
+go.sum.bak

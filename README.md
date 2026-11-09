@@ -1,6 +1,6 @@
 # quewe
 
-> **Name:** The project was named **quewe** (formerly task-service). Repository: `github.com/vinihss/quewe`.
+
 
 Go HTTP service for managing scheduled tasks, executions, distributed workers,
 task groups, and observability. Implements Clean Architecture + Hexagonal
